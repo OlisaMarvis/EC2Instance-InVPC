@@ -12,39 +12,39 @@ Resources:
   myWebAccessSecurityGroup:
     Type: AWS::EC2::SecurityGroup
     Properties:
-      GroupDescription: Allow http to test our test host
-      VpcId: 
-        Ref: myVPC
-      SecurityGroupIngress:
+        GroupDescription: Allow http to our test host
+        VpcId:
+          Ref: myVPC
+        SecurityGroupIngress:
         - IpProtocol: tcp
           FromPort: 80
           ToPort: 80
-          CidrIP: 0.0.0.0/0
+          CidrIp: 0.0.0.0/0
         - IpProtocol: tcp
           FromPort: 22
           ToPort: 22
-          CidrIP: 0.0.0.0/0  
-      SecurityGroupEgress:
+          CidrIp: 0.0.0.0/0
+        SecurityGroupEgress:
         - IpProtocol: -1
           FromPort: -1
           ToPort: -1
-          CidrIp: 0.0.0./0
-  myWebServerInstance:
+          CidrIp: 0.0.0.0/0
+  myWebServerInstance: 
     Type: AWS::EC2::Instance
     Properties:
-    InstanceType: t2.micro
-    ImageId: !Ref AMItoUse
-    KeyName: NewKey
-    NetworkInterfaces:
-        - AssociatePublicIPAddress: "true"
+      InstanceType: t3.micro
+      ImageId: !Ref AMItoUse
+      KeyName: NewKey
+      NetworkInterfaces: 
+        - AssociatePublicIpAddress: "true"
           DeviceIndex: "0"
-          GroupSet:
+          GroupSet: 
             - Ref: "myWebAccessSecurityGroup"
-          SubnetId:
+          SubnetId: 
             Ref: "PublicSubnet"
-    UserData:
-    Fn::Base64: !Sub |
-      #!/bin/bash
-      yum update -y
-      yum install -y httpd
-      systemctl start httpd
+      UserData:
+        Fn::Base64: !Sub |
+          #!/bin/bash
+          yum update -y
+          yum install -y httpd
+          systemctl start httpd
