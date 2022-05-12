@@ -51,6 +51,6 @@ aws cloudformation delete-stack --stack-name myChallenge
 ```
 
 Where `myChallenge` is the name of your stack.
-Your console should look like the pic below
+Your AWS cloudformation console should look like the picture below.
 
 ![](./ChallengeTASK1/Delete%20stack.png)
