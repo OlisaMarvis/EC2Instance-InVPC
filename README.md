@@ -19,7 +19,7 @@ An editor would be helpful to visualize the image as well as code. Download the 
 ## Important Info
 I'm currently running all my commands on Visual studio after installing Ubuntu 20.04 on windows WSL. You can find the steps to achieve this [here](https://docs.microsoft.com/en-us/windows/dev-environment/javascript/nodejs-on-wsl)
 
-You can then clone/fork the repo and look at the template I used. The template is the `task1.yml` and the parameters in the `task1-parameters.json`.
+You can then clone/fork the repo and look at the template I used. The template is the ```task1.yml``` and the parameters in the ```task1-parameters.json```.
 
 ## Important notice
 Make sure to change the following values to yours
@@ -28,7 +28,11 @@ Make sure to change the following values to yours
 3. Your VPC ID
 
 To create/deploy your cloudformation template, run the following command
-`$aws cloudformation create-stack --stack-name myChallenge --region us-east-1 --template-body file://task1.yml --parameters file://task1-parameters.json`
+
+```
+$aws cloudformation create-stack --stack-name myChallenge --region us-east-1 --template-body file://task1.yml --parameters file://task1-parameters.json
+```
+
 Kindly replace myChallenge with your stackname, task1.yml with a filename of your choice and task1-parameters.json with a name of your choice.
 
 ### Important
@@ -42,9 +46,11 @@ To verify, you will use the public IP address of the newly launched EC2 instance
 ### Cleaning up
 To delete the stack to prevent additional costs by AWS. Run the command below and also login to your AWS console to verify that your stack has been deleted.
 
-`aws cloudformation delete-stack --stack-name myChallenge`
+```
+aws cloudformation delete-stack --stack-name myChallenge
+```
 
-Where "myChallenge" is the name of your stack.
+Where `myChallenge` is the name of your stack.
 Your console should look like the pic below
 
 ![](./ChallengeTASK1/Delete%20stack.png)
